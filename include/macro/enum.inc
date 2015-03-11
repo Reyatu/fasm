@@ -1,22 +1,23 @@
-; Macro for defining enum
+; Emulate defining enum with struc
 
-; Last Change: 2015 January 18
+; Last Change: 2015 February 17
 
-macro enum dummy, [name] {
+struc enum [name] {
   common
-    local i
+    local i, matched
     i = 0
 
   forward
-    local x
-    x = i
+    matched = 0
     match _name == value, name \{
       i = value
-      _name = i
+      _name = value
+      matched = 1
     \}
-    ; TODO: Figure out how to do "if not matched"
-    if i = x
+    if ~ matched
       name = i
     end if
     i = i + 1
 }
+
+; vim:sts=2:
