@@ -12,6 +12,6 @@ macro .bss { section '.bss' readable writeable }
 
 macro .idata { section '.idata' import data readable writeable }
 
-macro .reloc { section '.reloc' data readable discardable fixups }
+macro .reloc { section '.reloc' fixups data readable discardable }
 
 ; vim:sts=2:
